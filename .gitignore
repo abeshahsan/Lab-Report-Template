@@ -28,7 +28,7 @@
 *.ind
 
 # PDF output files (if you don't want to include them)
-*.pdf
+# *.pdf
 
 # LaTeX temporary files
 *.tmp
