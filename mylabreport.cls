@@ -7,7 +7,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mylabreport}[My custom lab report class]
 
-\LoadClass[12pt]{article}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
+\LoadClass{article}
 
 % Package imports
 \RequirePackage[a4paper, margin=0.60in]{geometry}
@@ -18,6 +21,7 @@
 \RequirePackage{amssymb}
 \RequirePackage{algpseudocode}
 \RequirePackage{algorithm}
+\RequirePackage{tikz}
 
 
 \RequirePackage{wrapfig}
@@ -54,6 +58,14 @@
 
 \newcommand{\labgroup}{LabGroup}
 \newcommand{\setlabgroup}{\renewcommand{\labgroup}}
+
+\newcommand{\student}{
+    Author Name \\
+    ID \\
+    Dept \\
+}
+\newcommand{\setstudent}{\renewcommand{\student}}
+
 % End of custom commands
 
 
@@ -92,11 +104,9 @@
         %----------------------------------------------------------------------------------------
         %	AUTHOR SECTION
         %----------------------------------------------------------------------------------------
-        {\Huge
-        \textbf{\studentname}\\
-        \studentid\\
-        Lab Group \labgroup\\[2cm]
-        }
+        
+        {\Huge \student \vspace{4cm}}
+        
 
         %----------------------------------------------------------------------------------------
         %	DATE SECTION
@@ -113,11 +123,19 @@
 \RequirePackage{fancyhdr}
 \fancyhf{}
 \headheight=15pt
-\pagestyle{fancy}
-\lhead{ID: \studentid}
-\rhead{Lab \labnumber}
-\chead{\coursecode: \coursetitle}
 
-\cfoot{\thepage}
+\fancypagestyle{firstpage}{
+    \fancyhf{}
+    \lhead{ID: \studentid}
+    \rhead{Lab \labnumber}
+    \chead{\coursecode: \coursetitle}
+    \cfoot{\thepage}
+}
+
+\pagestyle{plain}
+
+\AtBeginDocument{
+    \thispagestyle{firstpage}
+}
 
 \endinput
