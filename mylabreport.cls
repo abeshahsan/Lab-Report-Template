@@ -13,11 +13,11 @@
 \LoadClass{article}
 
 % Package imports
-\RequirePackage[a4paper, margin=0.60in]{geometry}
+\RequirePackage[a4paper, margin=0.75in]{geometry}
 \RequirePackage[none]{hyphenat}
 \RequirePackage{amsmath}
 \RequirePackage{graphicx}
-\graphicspath{{./figures/}}
+
 \RequirePackage{amssymb}
 \RequirePackage{algpseudocode}
 \RequirePackage{algorithm}
@@ -25,6 +25,7 @@
 
 
 \RequirePackage{wrapfig}
+\RequirePackage{adjustbox}
 
 \RequirePackage{subcaption}
 \RequirePackage{multirow}
@@ -33,6 +34,10 @@
 \RequirePackage{parskip}
 \RequirePackage{setspace}
 \RequirePackage{customstyles}
+\RequirePackage[toc,page]{appendix}
+\RequirePackage{multicol}
+
+
 % End of package imports
 
 
@@ -56,8 +61,11 @@
 \newcommand{\studentname}{StudentName}
 \newcommand{\setstudentname}{\renewcommand{\studentname}}
 
-\newcommand{\labgroup}{LabGroup}
-\newcommand{\setlabgroup}{\renewcommand{\labgroup}}
+\newcommand{\sectionnumber}{Section}
+\newcommand{\setsectionnumber}{\renewcommand{\sectionnumber}}
+
+\newcommand{\labgroupnumber}{LabGroup}
+\newcommand{\setlabgroupnumber}{\renewcommand{\labgroupnumber}}
 
 \newcommand{\student}{
     Author Name \\
@@ -98,7 +106,7 @@
         %	TITLE SECTION
         %----------------------------------------------------------------------------------------
 
-        {\huge \textbf{Lab Report \labnumber}\\[0.2cm] }
+        {\huge \textbf{Lab \labnumber}\\[0.2cm] }
         {\huge \textbf{\labtitle}\\[3cm]}
 
         %----------------------------------------------------------------------------------------
@@ -127,12 +135,19 @@
 \fancypagestyle{firstpage}{
     \fancyhf{}
     \lhead{ID: \studentid}
+    \rhead{Assignment \labnumber}
+    \chead{\coursecode: \coursetitle}
+    \cfoot{\thepage}
+}
+
+\fancypagestyle{main}{
+    \lhead{ID: \studentid}
     \rhead{Lab \labnumber}
     \chead{\coursecode: \coursetitle}
     \cfoot{\thepage}
 }
 
-\pagestyle{plain}
+\pagestyle{main}
 
 \AtBeginDocument{
     \thispagestyle{firstpage}

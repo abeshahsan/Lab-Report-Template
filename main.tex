@@ -1,17 +1,26 @@
 \documentclass{mylabreport}
+\usepackage{pifont}
+\usepackage{lipsum}
 
-\setlabnumber{3} % Change the lab number.
-\setcoursecode{CSE 4712} % Change the course code.
-\setcoursetitle{Artificial Intelligence Lab} % Change the course title.
-\setlabtitle{Constraint Satisfaction Problem} % Change the lab title.
-\setstudentid{200041225} % Change the student ID.
-\setstudent{ % Change the student name.
-    \textbf{K. M. Abesh Ahsan} \\
-    200041225 \\
-    Section 2 \\
-    Lab Group 2B \\
+\graphicspath{{./figures/}, {./figures/outputs/}}
+
+
+\setlabnumber{[Lab No]} 
+\setcoursecode{Course Code} 
+\setcoursetitle{Course Title} 
+\setlabtitle{Lab Title}
+\setstudentid{Student ID}
+\setstudentname{Student Name}
+\setsectionnumber{Section No}
+\setlabgroupnumber{Lab Group No}
+
+
+\setstudent{ 
+    \textbf{\studentname} \\
+    \studentid \\
+    \sectionnumber \\
+    \labgroupnumber \\
 } 
-
 
 % -------------------------------------------------
 %
@@ -21,12 +30,16 @@
 
 \begin{document}
 
-% \maketitlepage
-% \customtableofcontents
-% \newpage
+\maketitlepage
+\customtableofcontents
+\clearpage
+\newpage
 
-\section{Introduction}
 
+\input{sections/introduction.tex}
 
+\lipsum[1-7]
+
+\printbibliography[heading=bibintoc, title={References}]
 
 \end{document}
